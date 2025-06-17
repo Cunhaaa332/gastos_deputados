@@ -2,11 +2,11 @@ require 'csv'
 
 class CsvImporter
   def self.import(path)
-    CSV.foreach(path, headers: true, encoding: 'UTF-8') do
+    CSV.foreach(path, headers: true, encoding: 'bom|utf-8', col_sep: ';', quote_char: '"', liberal_parsing: true) do |row|
       next if row['sgUF'] != 'RJ'
       next if row['vlrLiquido'].to_f <= 0
 
-      deputado = Detupado.find_or_create_by(
+      deputado = Deputado.find_or_create_by(
         ide_cadastro: row['ideCadastro']
       ) do |infos_dep|
         infos_dep.nome = row['txNomeParlamentar']
@@ -28,13 +28,14 @@ class CsvImporter
   private
 
   def self.date_parse(str_date)
-    return nil if str_date.nil?
-    begin
-      Date.strptime(str_date, '%Y-%m-%d')
+    return nil if str_date.nil? || str_date.strip.empty?
+    date_formats = ['%Y-%m-%d', '%d/%m/%Y', '%Y/%m/%d']
+
+    date_formats.each do |format|
       begin
-        Date.strptime(str_date, '%d/%m/%Y')
+        return Date.strptime(str_date.strip, format)
       rescue ArgumentError
-        nil
+        next
       end
     end
   end
