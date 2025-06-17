@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deputado: one
+  txtFornecedor: MyString
+  datEmissao: 2025-06-17
+  vlrLiquido: 9.99
+  urlDocumento: MyString
+
+two:
+  deputado: two
+  txtFornecedor: MyString
+  datEmissao: 2025-06-17
+  vlrLiquido: 9.99
+  urlDocumento: MyString
