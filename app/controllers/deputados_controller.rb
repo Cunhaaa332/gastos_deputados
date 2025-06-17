@@ -1,0 +1,2 @@
+class DeputadosController < ApplicationController
+end
