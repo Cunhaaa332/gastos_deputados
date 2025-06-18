@@ -1,8 +1,11 @@
 class DeputadosController < ApplicationController
   def index
-    uf = params[:uf].upcase
+    @ufs = Deputado.distinct.pluck(:uf).sort
+    uf_param = params[:uf] || 'RJ'
+    @selected_uf = uf_param.upcase
+
     @deputados = Deputado.includes(:despesas)
-                          .where(uf: uf)
+                          .where(uf: @selected_uf)
                           .sort_by { |d| -d.despesas.sum(:vlrLiquido) }
     respond_to do |format|
       format.html
