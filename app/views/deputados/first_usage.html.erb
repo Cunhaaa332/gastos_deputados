@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Primeira vez aqui?</h2>
+  <p class="text-center">Parece que ainda não há dados cadastrados. Importe um arquivo CSV para começar.</p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= form_with url: import_csv_path, local: true, html: { multipart: true } do |form| %>
+        <div class="mb-3">
+          <%= form.label :csv_file, "Selecionar CSV", class: "form-label" %>
+          <%= form.file_field :csv_file, class: "form-control" %>
+        </div>
+        <%= form.hidden_field :uf, value: "RJ" %>
+        <%= form.submit "Importar", class: "btn btn-primary w-100" %>
+      <% end %>
+    </div>
+  </div>
+</div>
