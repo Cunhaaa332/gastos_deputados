@@ -1,0 +1,22 @@
+<h1 class="mb-4">Deputados de <%= params[:uf].upcase %></h1>
+
+<table class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Partido</th>
+      <th>Total de Gastos</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deputados.each do |d| %>
+      <tr>
+        <td><%= d.nome %></td>
+        <td><%= d.partido %></td>
+        <td>R$ <%= number_to_currency(d.despesas.sum(:vlrLiquido), unit: "R$", separator: ",", delimiter: ".") %></td>
+        <td><%= link_to "Ver despesas", deputado_despesas_path(d.id), class: "btn btn-primary btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
