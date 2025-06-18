@@ -18,4 +18,19 @@ RSpec.describe "Deputados", type: :request do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe "GET /deputados com UF inválida" do
+    it "retorna 404 e mensagem de erro para uf invalida" do
+      get deputados_path(uf: "ZZ")
+      expect(response).to have_http_status(:not_found)
+      expect(response.body).to include("UF inválida")
+    end
+  end
+
+  describe "GET /deputados/:id/despesas com id inválido" do
+    it "retorna 404 para deputado inexistente" do
+      get deputado_despesas_path(999_999)
+      expect(response).to have_http_status(:not_found)
+    end
+  end
 end
