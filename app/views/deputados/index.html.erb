@@ -12,6 +12,15 @@
         <% end %>
     </div>
     <div class="mt-5">
+        <%= form_with url: import_csv_path, method: :post, local: true, html: { multipart: true, class: "mb-4" } do %>
+            <div class="input-group">
+                <input type="file" name="csv_file" class="form-control" accept=".csv">
+                <input type="hidden" name="uf" value="<%= @selected_uf %>">
+                <button class="btn btn-outline-primary" type="submit">Importar CSV</button>
+            </div>
+        <% end %>
+    </div>
+    <div class="mt-5">
         <h4>Gastos por Partido (<%= @selected_uf %>)</h4>
         <%= pie_chart @partido_gastos, donut: true, library: { title: { display: true, text: "Distribuição por Partido" } } %>
     </div>
