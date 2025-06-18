@@ -1,8 +1,12 @@
 class DeputadosController < ApplicationController
   def index
-    @ufs = Deputado.distinct.pluck(:uf).sort
+    @ufs = Deputado.ufs_validas.sort
     uf_param = params[:uf] || 'RJ'
     @selected_uf = uf_param.upcase
+
+    unless Deputado.ufs_validas.include?(@selected_uf)
+      render plain: "UF inválida", status: :not_found and return
+    end
 
     @partido_gastos = Deputado.gasto_total_por_partido(@selected_uf.upcase)
     puts @partido_gastos.inspect

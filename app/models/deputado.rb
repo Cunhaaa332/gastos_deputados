@@ -10,6 +10,10 @@ class Deputado < ApplicationRecord
     .to_h
   end
 
+  def self.ufs_validas
+    distinct.pluck(:uf)
+  end
+
   def foto_url
     "https://www.camara.leg.br/internet/deputado/bandep/#{ide_cadastro}.jpg"
   end
