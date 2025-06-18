@@ -23,7 +23,7 @@ class DeputadosController < ApplicationController
   def despesas
     @deputado = Deputado.includes(:despesas).find(params[:id])
 
-    @maior_despesa = @deputado.despesas.order(vlrLiquido: :desc).first
+    @maior_despesa = @deputado.maior_despesa
 
     render json: {
       deputado: {
