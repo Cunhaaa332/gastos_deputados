@@ -4,6 +4,8 @@ class DeputadosController < ApplicationController
     uf_param = params[:uf] || 'RJ'
     @selected_uf = uf_param.upcase
 
+    @partido_gastos = Deputado.gasto_total_por_partido(@selected_uf.upcase)
+    puts @partido_gastos.inspect
     @deputados = Deputado.includes(:despesas)
                           .where(uf: @selected_uf)
                           .sort_by { |d| -d.despesas.sum(:vlrLiquido) }
