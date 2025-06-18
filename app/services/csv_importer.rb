@@ -3,7 +3,6 @@ require 'csv'
 class CsvImporter
   def self.import(path)
     CSV.foreach(path, headers: true, encoding: 'bom|utf-8', col_sep: ';', quote_char: '"', liberal_parsing: true) do |row|
-      next if row['sgUF'] != 'RJ'
       next if row['vlrLiquido'].to_f <= 0
 
       deputado = Deputado.find_or_create_by(
