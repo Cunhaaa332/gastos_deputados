@@ -10,6 +10,10 @@ class Deputado < ApplicationRecord
     .to_h
   end
 
+  def foto_url
+    "https://www.camara.leg.br/internet/deputado/bandep/#{ide_cadastro}.jpg"
+  end
+
   def maior_despesa
     despesas.order(vlrLiquido: :desc).first
   end
