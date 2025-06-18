@@ -25,6 +25,17 @@ class DeputadosController < ApplicationController
       format.json {render json: despesas_json}
     end
   end
+
+  def import_csv
+    if params[:csv_file].present?
+      CsvImporter.import(params[:csv_file].path)
+      flash[:notice] = "CSV importado com sucesso!"
+    else
+      flash[:alert] = "Nenhum arquivo selecionado."
+    end
+
+    redirect_to deputados_path(uf: params[:uf] || "RJ")
+  end
 end
 
 
