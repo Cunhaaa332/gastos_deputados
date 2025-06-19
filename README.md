@@ -107,6 +107,12 @@ Returns detailed expenses for a specific parliamentarian.
 
 * **`id`** (**mandatory**) : parliamentarian ID.
 
+#### Request example
+
+```bash
+GET /deputados/1/despesas
+```
+
 #### Response example
 
 ```json
