@@ -1,24 +1,69 @@
-# README
+# Deputados Gastos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Context
 
-Things you may want to cover:
+Deputados Gastos is a learning propouse application. The objective of this application is monitor the spending of parliamentarians from all Brazilian states. Remembering that these expenses are public money. The user who wants to check this spends, only needs to get the csv file from the government website, and import the file into the main page.
 
-* Ruby version
+## Online version
 
-* System dependencies
+You can access the Heroku hosted version by [clicking here](https://deputados-gastos-99f3d7eec48d.herokuapp.com/)
 
-* Configuration
+## Functionalities
 
-* Database creation
+### The app has the following features:
 
-* Database initialization
+    * Uploading a CSV file with parliamentary spending data
+    * Listing of deputies filtered by state
+    * Displaying total spending by deputy
+    * Detailed individual expenses
+    * Pie chart showing the parties that spent the most in the state
+    * Uploading new CSVs via the interface
+    * JSON responses available for data endpoints (API)
 
-* How to run the test suite
+## Technologies
 
-* Services (job queues, cache servers, search engines, etc.)
+### List of technologies used in the project:
 
-* Deployment instructions
+    * Ruby 3.3.5
+    * Rails 7 (full usage, without the --api flag)
+    * PostgreSQL (database)
+    * Bootstrap 5 (front-end style)
+    * Chartkick + Chart.js (make graphs)
+    * RSpec (tests)
 
-* ...
+
+## Running our project local
+
+First of all, different from the previous list, which mentioned all the technologies used in the project, this is the list of the technologies that you need to install in your system to be able to run the project:
+
+    * Ruby 3.3.5
+    * Rails 7
+    * PostgreSQL 12+
+    * Node.js (NVM recommended)
+
+After installing the technologies, lets clone the project:
+
+```bash
+git clone https://github.com/seu-usuario/deputados-gastos.git
+cd deputados-gastos
+```
+
+Install the dependencies:
+
+```bash
+bundle install
+```
+
+Create the database:
+
+```bash
+rails db:create db:migrate
+```
+
+Then run the rails server:
+
+```bash
+rails s
+```
+
+And now you can access your local application at `http://localhost:3000/`
