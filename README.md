@@ -2,7 +2,7 @@
 
 ### Context
 
-Deputados Gastos is a learning propouse application. The objective of this application is monitor the spending of parliamentarians from all Brazilian states. Remembering that these expenses are public money. The user who wants to check this spends, only needs to get the csv file from the government website, and import the file into the main page.
+Deputados Gastos is a learning purpose application. The objective of this application is monitor the spending of parliamentarians from all Brazilian states. Remembering that these expenses are public money. The user who wants to check these expenses, only needs to get the csv file from the government website, and import the file into the main page.
 
 ### Online version
 
@@ -28,11 +28,11 @@ You can access the Heroku hosted version by [clicking here](https://deputados-ga
 * Rails 7 (full usage, without the --api flag)
 * PostgreSQL (database)
 * Bootstrap 5 (front-end style)
-* Chartkick + Chart.js (make graphs)
+* Chartkick + Chart.js (for rendering charts)
 * RSpec (tests)
 
 
-### Running our project local
+### Running the project locally
 
 First of all, different from the previous list, which mentioned all the technologies used in the project, this is the list of the technologies that you need to install in your system to be able to run the project:
 
@@ -41,7 +41,7 @@ First of all, different from the previous list, which mentioned all the technolo
 * PostgreSQL 12+
 * Node.js (NVM recommended)
 
-After installing the technologies, lets clone the project:
+After installing the technologies, let’s clone the project:
 
 ```bash
 git clone https://github.com/seu-usuario/deputados-gastos.git
