@@ -110,7 +110,7 @@ Returns detailed expenses for a specific parliamentarian.
 #### Request example
 
 ```bash
-GET /deputados/1/despesas
+GET /deputado/1/despesas
 ```
 
 #### Response example
