@@ -135,3 +135,13 @@ GET /deputado/1/despesas
   ]
 }
 ```
+
+# Application Diagrams
+
+### MVC Diagram
+
+![MVC Diagram](docs/MVCDiagram.jpg)
+
+### CSV Importer Flowchart
+
+![Csv Importer Flowchart](docs/CSVImporterFlowchart.jpg)
