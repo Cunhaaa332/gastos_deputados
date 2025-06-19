@@ -67,3 +67,65 @@ rails s
 ```
 
 And now you can access your local application at `http://localhost:3000/`
+
+# API Endpoints
+
+### GET 'deputados(/:uf)'
+
+Returns the list of parliamentarians from a specific state.
+
+#### Parameters
+
+* **`uf`** (**mandatory**) : state acronym (example: `RJ`, `SP`, `BA`)
+
+#### Request example
+
+```bash
+GET /deputados?uf=RJ
+```
+
+#### Response example
+
+```json
+[
+  {
+    "id": 1,
+    "nome": "Juca",
+    "partido": "PL",
+    "uf": "RJ",
+    "total_de_gastos": 123456.78
+  },
+  ...
+]
+```
+
+### GET 'deputado/:id/despesas'
+
+Returns detailed expenses for a specific parliamentarian.
+
+#### Parameters
+
+* **`id`** (**mandatory**) : parliamentarian ID.
+
+#### Response example
+
+```json
+{
+  "deputado": {
+    "id": 1,
+    "nome": "Juca",
+    "partido": "PL",
+    "uf": "RJ"
+  },
+  "despesas": [
+    {
+      "fornecedor": "Posto Shell",
+      "data_emissao": "2023-05-02",
+      "valor": 489.90,
+      "url_documento": "http://camara.gov.br/doc.pdf",
+      "maior_despesa": false
+    },
+    ...
+  ]
+}
+```
